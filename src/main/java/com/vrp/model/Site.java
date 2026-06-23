@@ -9,8 +9,14 @@ public class Site {
     public final double longitude;
     public final int serviceTimeUnloadMin;
 
-    public Site(String name, String type, String city, String state,
-                double latitude, double longitude, int serviceTimeUnloadMin) {
+    public Site(
+            String name,
+            String type,
+            String city,
+            String state,
+            double latitude,
+            double longitude,
+            int serviceTimeUnloadMin) {
         this.name = name;
         this.type = type;
         this.city = city;

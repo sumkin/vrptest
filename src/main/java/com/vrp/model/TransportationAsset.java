@@ -10,9 +10,15 @@ public class TransportationAsset {
     public final Double maxTimePerAssetHours;
     public final int serviceTimeLoadMin;
 
-    public TransportationAsset(String name, double fixedCost, boolean isRoundTrip,
-                     int capacityQuantity, double maxDutyTimeHours, double restTimeHours,
-                     Double maxTimePerAssetHours, int serviceTimeLoadMin) {
+    public TransportationAsset(
+            String name,
+            double fixedCost,
+            boolean isRoundTrip,
+            int capacityQuantity,
+            double maxDutyTimeHours,
+            double restTimeHours,
+            Double maxTimePerAssetHours,
+            int serviceTimeLoadMin) {
         this.name = name;
         this.fixedCost = fixedCost;
         this.isRoundTrip = isRoundTrip;

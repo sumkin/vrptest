@@ -12,9 +12,15 @@ public class Shipment {
     public final LocalDate earliestPickup;
     public final LocalDate latestPickup;
 
-    public Shipment(String orderId, String sourceName, String customerName,
-                         String productName, int quantity, LocalDate orderDate,
-                         LocalDate earliestPickup, LocalDate latestPickup) {
+    public Shipment(
+            String orderId,
+            String sourceName,
+            String customerName,
+            String productName,
+            int quantity,
+            LocalDate orderDate,
+            LocalDate earliestPickup,
+            LocalDate latestPickup) {
         this.orderId = orderId;
         this.sourceName = sourceName;
         this.customerName = customerName;

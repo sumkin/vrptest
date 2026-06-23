@@ -23,12 +23,19 @@ public class ExcelReader {
         try (FileInputStream fis = new FileInputStream(filePath);
             Workbook wb = new XSSFWorkbook(fis)) {
 
-            List<String> products = readProducts(wb.getSheet("Products"));
-            List<Site> sites = readSites(wb.getSheet("Sites"));
-            List<Shipment> shipments = readShipments(wb.getSheet("Shipments"));
-            List<TransitLane> transitLanes = readTransitLanes(wb.getSheet("Transit Matrix"));
-            List<TransportationAsset> transportationAssets = readTransportationAssets(wb.getSheet("Transportation Asset"));
-            List<AssetAssignment> assetAssignments = readAssetAssignments(wb.getSheet("Asset Assignment"));
+            Sheet productsSheet = wb.getSheet("Products");
+            Sheet sitesSheet = wb.getSheet("Sites");
+            Sheet shipmentsSheet = wb.getSheet("Shipments");
+            Sheet transitMatrixSheet = wb.getSheet("Transit Matrix");
+            Sheet transportationAssetSheet = wb.getSheet("Transportation Asset");
+            Sheet assetAssignmentSheet = wb.getSheet("Asset Assignment");
+
+            List<String> products = readProducts(productsSheet);
+            List<Site> sites = readSites(sitesSheet);
+            List<Shipment> shipments = readShipments(shipmentsSheet);
+            List<TransitLane> transitLanes = readTransitLanes(transitMatrixSheet);
+            List<TransportationAsset> transportationAssets = readTransportationAssets(transportationAssetSheet);
+            List<AssetAssignment> assetAssignments = readAssetAssignments(assetAssignmentSheet);
 
             return new InputData(products, sites, shipments, transitLanes, transportationAssets, assetAssignments);
         }

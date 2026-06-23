@@ -8,8 +8,13 @@ public class TransitLane {
     public final double travelTimeHours;
     public final double distance;
 
-    public TransitLane(String sourceName, String destinationName, String asset,
-                       double overrideCost, double travelTimeHours, double distance) {
+    public TransitLane(
+            String sourceName,
+            String destinationName,
+            String asset,
+            double overrideCost,
+            double travelTimeHours,
+            double distance) {
         this.sourceName = sourceName;
         this.destinationName = destinationName;
         this.asset = asset;

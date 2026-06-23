@@ -16,9 +16,13 @@ public class InputData {
     public final List<TransportationAsset> transportationAssets;
     public final List<AssetAssignment> assetAssignments;
 
-    public InputData(List<String> products, List<Site> sites, List<Shipment> shipments,
-                     List<TransitLane> transitLanes, List<TransportationAsset> transportationAssets,
-                     List<AssetAssignment> assetAssignments) {
+    public InputData(
+            List<String> products,
+            List<Site> sites,
+            List<Shipment> shipments,
+            List<TransitLane> transitLanes,
+            List<TransportationAsset> transportationAssets,
+            List<AssetAssignment> assetAssignments) {
         this.products = products;
         this.sites = sites;
         this.shipments = shipments;
@@ -29,7 +33,9 @@ public class InputData {
 
     @Override
     public String toString() {
-        return String.format("InputData{products=%d, sites=%d, shipments=%d, transitLanes=%d, transportationAssets=%d, assetAssignments=%d}",
+        return String.format(
+                "InputData{products=%d, sites=%d, shipments=%d," +
+                " transitLanes=%d, transportationAssets=%d, assetAssignments=%d}",
                 products.size(), sites.size(), shipments.size(),
                 transitLanes.size(), transportationAssets.size(), assetAssignments.size());
     }
