@@ -40,8 +40,11 @@ public class SolutionExporter {
 
     // ---- Routes sheet ----
 
-    private static void writeRoutesSheet(Workbook wb, VehicleRoutingProblemSolution solution,
-                                         CellStyle headerStyle, CellStyle dateStyle) {
+    private static void writeRoutesSheet(
+            Workbook wb,
+            VehicleRoutingProblemSolution solution,
+            CellStyle headerStyle,
+            CellStyle dateStyle) {
         Sheet sheet = wb.createSheet("Routes");
         String[] headers = {
             "Route", "Vehicle", "AssetType", "JobId",
@@ -91,8 +94,10 @@ public class SolutionExporter {
 
     // ---- Unassigned sheet ----
 
-    private static void writeUnassignedSheet(Workbook wb, VehicleRoutingProblemSolution solution,
-                                              CellStyle headerStyle) {
+    private static void writeUnassignedSheet(
+            Workbook wb,
+            VehicleRoutingProblemSolution solution,
+            CellStyle headerStyle) {
         Sheet sheet = wb.createSheet("Unassigned");
         String[] headers = {"JobId", "PickupSite", "DeliverySite", "Quantity"};
         writeHeader(sheet.createRow(0), headers, headerStyle);

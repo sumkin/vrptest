@@ -21,6 +21,7 @@ import java.util.Map;
 public class VrpProblemBuilder {
 
     private static final LocalDate REFERENCE_DATE = LocalDate.of(2026, 1, 1);
+    private static final double SECONDS_PER_DAY = 86400.0;
 
     public static VehicleRoutingProblem build(InputData data) {
         Map<String, Site> siteMap = new HashMap<>();
@@ -34,7 +35,7 @@ public class VrpProblemBuilder {
 
         VehicleRoutingProblem.Builder vrpBuilder = VehicleRoutingProblem.Builder.newInstance()
                 .setFleetSize(VehicleRoutingProblem.FleetSize.FINITE)
-                .setRoutingCost(new TransitMatrixCosts(laneMap));
+                .setRoutingCost(new RoutingTransportCosts(laneMap));
 
         // Vehicle types
         Map<String, VehicleType> vehicleTypes = new HashMap<>();
@@ -78,7 +79,7 @@ public class VrpProblemBuilder {
 
             TimeWindow pickupTw = TimeWindow.newInstance(
                     toSeconds(order.earliestPickup),
-                    toSeconds(order.latestPickup) + 86399.0  // end of latest pickup day
+                    toSeconds(order.latestPickup) + SECONDS_PER_DAY - 1  // end of latest pickup day
             );
 
             vrpBuilder.addJob(
@@ -108,6 +109,6 @@ public class VrpProblemBuilder {
     }
 
     private static double toSeconds(LocalDate date) {
-        return (date.toEpochDay() - REFERENCE_DATE.toEpochDay()) * 86400.0;
+        return (date.toEpochDay() - REFERENCE_DATE.toEpochDay()) * SECONDS_PER_DAY;
     }
 }
