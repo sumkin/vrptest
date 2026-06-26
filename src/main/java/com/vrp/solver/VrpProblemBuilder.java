@@ -51,7 +51,6 @@ public class VrpProblemBuilder {
         for (AssetAssignment aa : data.assetAssignments) {
             VehicleType type = vehicleTypes.get(aa.assetName);
             if (type == null) continue;
-            TransportationAsset at = assetTypeMap.get(aa.assetName);
             Location depot = locationFor(aa.sourceSite, siteMap);
             for (int i = 1; i <= aa.assignedUnits; i++) {
                 vrpBuilder.addVehicle(
